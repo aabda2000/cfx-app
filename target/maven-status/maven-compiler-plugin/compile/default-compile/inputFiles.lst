@@ -1,0 +1,7 @@
+/home/insa/eclipse-workspace/cfx-app/src/main/java/fr/insa/service/impl/ProductServiceImpl.java
+/home/insa/eclipse-workspace/cfx-app/src/main/java/fr/insa/service/impl/ProductOrderingServiceImpl.java
+/home/insa/eclipse-workspace/cfx-app/src/main/java/fr/insa/service/ProductService.java
+/home/insa/eclipse-workspace/cfx-app/src/main/java/fr/insa/service/ProductOrderingService.java
+/home/insa/eclipse-workspace/cfx-app/src/main/java/fr/insa/model/Product.java
+/home/insa/eclipse-workspace/cfx-app/src/main/java/fr/insa/model/ProductOrdering.java
+/home/insa/eclipse-workspace/cfx-app/src/main/java/fr/insa/mock/ProductServiceMockDaoImpl.java
