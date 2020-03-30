@@ -20,8 +20,8 @@ public class ProductServiceImpl implements ProductService {
 	
 	public Product  getProduct(String productId) {
 		System.out.println("getProduct()");
-		System.out.println((ProductServiceMockDaoImpl.getProduct(productId)).get().getProductId());
-		return (ProductServiceMockDaoImpl.getProduct(productId)).get();
+		System.out.println((ProductServiceMockDaoImpl.getProduct(productId)).getProductId());
+		return (ProductServiceMockDaoImpl.getProduct(productId));
 	}
 
 	

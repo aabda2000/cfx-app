@@ -8,7 +8,7 @@ import javax.jws.WebService;
 import fr.insa.mock.ProductServiceMockDaoImpl;
 import fr.insa.model.Product;
 import fr.insa.model.ProductOrdering;
-import fr.insa.service.ProductOrderingService;
+import fr.insa.service.*;
 
 @WebService(endpointInterface = "fr.insa.service.ProductOrderingService", serviceName = "productOrderingService")
 public class ProductOrderingServiceImpl implements ProductOrderingService {
@@ -21,7 +21,7 @@ public class ProductOrderingServiceImpl implements ProductOrderingService {
 	public ProductOrdering createProductOrdering(ProductOrdering productOrdering) {
 		System.out.println("createProductOrdering()");
 
-		Optional<Product> findFirst = ProductServiceMockDaoImpl.getProduct(productOrdering.getProductId());
+		Product findFirst = ProductServiceMockDaoImpl.getProduct(productOrdering.getProductId());
 
 		// if (!findFirst.isPresent()) {
 		// throw new Exception("No matches found.");
@@ -29,7 +29,7 @@ public class ProductOrderingServiceImpl implements ProductOrderingService {
 
 		ProductOrdering newOrderProduct = new ProductOrdering();
 		newOrderProduct.setQuantity(productOrdering.getQuantity());
-		newOrderProduct.setProductId(findFirst.get().getProductId());
+		newOrderProduct.setProductId(findFirst.getProductId());
 		newOrderProduct.setId(Long.toString(System.currentTimeMillis()));
 
 		ProductServiceMockDaoImpl.getProductOrderings().add(newOrderProduct);

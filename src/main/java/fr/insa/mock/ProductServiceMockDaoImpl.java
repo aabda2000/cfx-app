@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.eclipse.persistence.internal.jpa.parsing.EqualsAssignmentNode;
+
 import fr.insa.model.Product;
 import fr.insa.model.ProductOrdering;
-
 
 public class ProductServiceMockDaoImpl {
 	private static List<Product> productList = new ArrayList<Product>();
 	private static List<ProductOrdering> productOrderings = new ArrayList<>();
-	
+
 	static {
 		Product p1 = new Product("101", "Laptop", "Electronics");
 		Product p2 = new Product("102", "Bannana", "Fruits");
@@ -21,21 +22,26 @@ public class ProductServiceMockDaoImpl {
 		productList.add(p3);
 	}
 
-	public static Optional <Product> getProduct(String productId) {
-		return ProductServiceMockDaoImpl.getAllProducts().stream().filter(current -> current.getProductId().equals(productId)).findFirst();
+	public static Product getProduct(String productId) {
+		for (Product product : ProductServiceMockDaoImpl.getAllProducts()) {
+			if (product.getProductId().equals(productId)) {
+				return product;
+			}
+		}
+		return null;
+
 	}
 
 	public static List<Product> getAllProducts() {
 		return productList;
 	}
-	
-	
+
 	public static List<ProductOrdering> getProductOrderings() {
 		return productOrderings;
 	}
 
 	public static Optional<ProductOrdering> getProductOrderingById(String productOrderingId) {
-		return ProductServiceMockDaoImpl.getProductOrderings().stream().filter(current -> current.getId().equals(productOrderingId))
-				.findFirst();
+		return ProductServiceMockDaoImpl.getProductOrderings().stream()
+				.filter(current -> current.getId().equals(productOrderingId)).findFirst();
 	}
 }

@@ -21,12 +21,8 @@
 
   <xs:complexType name="getProductResponse">
     <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="tns:optional"/>
+      <xs:element minOccurs="0" name="return" type="tns:product"/>
     </xs:sequence>
-  </xs:complexType>
-
-  <xs:complexType final="extension restriction" name="optional">
-    <xs:sequence/>
   </xs:complexType>
 
   <xs:complexType name="product">
